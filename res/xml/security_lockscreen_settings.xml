@@ -29,6 +29,17 @@
             android:summary="@string/summary_placeholder"
             settings:keywords="@string/keywords_lock_screen_notif"/>
 
+        <lineageos.preference.LineageSecureSettingListPreference
+            android:key="face_unlock_method"
+            android:title="@string/face_unlock_method_title"
+            android:summary="%s"
+            android:dialogTitle="@string/face_unlock_method_title"
+            android:entries="@array/face_unlock_method_entries"
+            android:entryValues="@array/face_unlock_method_values"
+            android:defaultValue="0"
+            settings:searchable="false"
+            settings:controller="com.android.settings.biometrics.face.FaceSettingsLockscreenUnlockMethodPreferenceController" />
+
         <SwitchPreference
             android:key="security_display_lockscreen_bypass"
             android:title="@string/lockscreen_bypass_title"
@@ -45,6 +56,11 @@
             android:key="owner_info_settings"
             android:title="@string/owner_info_settings_title"
             android:summary="@string/owner_info_settings_summary"/>
+
+        <lineageos.preference.LineageSecureSettingSwitchPreference
+            android:key="lockscreen_media_metadata"
+            android:title="@string/lockscreen_media_art_title"
+            android:defaultValue="false" />
 
         <SwitchPreference
             android:key="lockscreen_privacy_wallet_switch"
@@ -69,6 +85,11 @@
             android:title="@string/lockscreen_trivial_controls_setting_toggle"
             android:summary="@string/lockscreen_trivial_controls_summary"
             settings:controller="com.android.settings.display.ControlsTrivialPrivacyPreferenceController"/>
+
+        <Preference
+            android:key="customizable_lock_screen_quick_affordances"
+            android:title="@string/lockscreen_quick_affordances_title"
+            settings:controller="com.android.settings.display.CustomizableLockScreenQuickAffordancesPreferenceController" />
 
         <SwitchPreference
             android:key="lockscreen_double_line_clock_switch"
@@ -112,11 +133,25 @@
             settings:controller="com.android.settings.gestures.PickupGesturePreferenceController"
             settings:searchable="false"/>
 
+        <Preference
+            android:key="gesture_screen_off_udfps_input_summary"
+            android:title="@string/ambient_display_screen_off_udfps_title"
+            android:fragment="com.android.settings.gestures.ScreenOffUdfpsSettings"
+            settings:searchable="false"
+            settings:controller="com.android.settings.gestures.ScreenOffUdfpsPreferenceController" />
+
         <SwitchPreference
             android:key="ambient_display_notification"
             android:title="@string/doze_title"
             android:summary="@string/doze_summary"
             settings:controller="com.android.settings.display.AmbientDisplayNotificationsPreferenceController"/>
+
+        <lineageos.preference.RemotePreference
+            android:key="doze_device_settings"
+            android:title="@string/ambient_display_screen_title"
+            settings:replacesKey="ambient_display_always_on|ambient_display_notification">
+            <intent android:action="org.lineageos.settings.device.DOZE_SETTINGS" />
+        </lineageos.preference.RemotePreference>
 
     </PreferenceCategory>
 

@@ -96,6 +96,17 @@
         android:ringtoneType="ringtone"
         settings:keywords="@string/sound_settings"/>
 
+    <!-- Phone ringtone for Slot2 -->
+    <com.android.settings.DefaultRingtonePreference
+        android:key="ringtone2"
+        android:title="@string/ringtone_title"
+        android:summary="@string/summary_placeholder"
+        android:order="-119"
+        android:dialogTitle="@string/ringtone_title"
+        android:ringtoneType="ringtone"
+        settings:allowDividerAbove="false"
+        settings:keywords="@string/sound_settings"/>
+
     <Preference
         android:key="spatial_audio_summary"
         android:title="@string/spatial_audio_title"
@@ -165,6 +176,11 @@
         android:key="charging_sounds"
         android:title="@string/charging_sounds_title"
         android:order="-40"/>
+
+    <!-- Custom charging sounds -->
+    <lineageos.preference.LineagePartsPreference
+        android:key="charging_sounds_settings"
+        settings:replacesKey="charging_sounds" />
 
     <SwitchPreference
         android:key="docking_sounds"
