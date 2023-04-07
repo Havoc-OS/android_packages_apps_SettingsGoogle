@@ -65,18 +65,19 @@
         settings:controller="com.android.settings.notification.RingVolumePreferenceController"/>
 
     <com.android.settings.notification.VolumeSeekBarPreference
-        android:key="alarm_volume"
-        android:icon="@*android:drawable/ic_audio_alarm"
-        android:title="@string/alarm_volume_option_title"
-        android:order="-150"
-        settings:controller="com.android.settings.notification.AlarmVolumePreferenceController"/>
-
-    <com.android.settings.notification.VolumeSeekBarPreference
         android:key="notification_volume"
         android:icon="@drawable/ic_notifications"
         android:title="@string/notification_volume_option_title"
+        android:order="-150"
+        settings:controller=
+            "com.android.settings.notification.NotificationVolumePreferenceController"/>
+
+    <com.android.settings.notification.VolumeSeekBarPreference
+        android:key="alarm_volume"
+        android:icon="@*android:drawable/ic_audio_alarm"
+        android:title="@string/alarm_volume_option_title"
         android:order="-140"
-        settings:controller="com.android.settings.notification.NotificationVolumePreferenceController"/>
+        settings:controller="com.android.settings.notification.AlarmVolumePreferenceController"/>
 
     <com.android.settingslib.RestrictedPreference
         android:key="zen_mode"
@@ -113,6 +114,14 @@
         android:order="-107"
         android:fragment="com.android.settings.notification.SpatialAudioSettings"
         settings:controller="com.android.settings.notification.SpatialAudioParentPreferenceController"/>
+
+    <!-- Adaptive Playback -->
+    <Preference
+        android:key="sound_adaptive_playback_summary"
+        android:title="@string/adaptive_playback_screen_title"
+        android:fragment="com.android.settings.sound.AdaptivePlaybackSoundSettings"
+        android:order="-103"
+        settings:controller="com.android.settings.sound.AdaptivePlaybackParentPreferenceController" />
 
     <Preference
         android:key="media_controls_summary"
